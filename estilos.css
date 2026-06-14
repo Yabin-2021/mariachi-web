@@ -1,4 +1,6 @@
-/* Reset básico */
+/* ==========================================
+   1. RESET BÁSICO Y TIPOGRAFÍA
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,9 @@ body {
     background-color: #ffffff;
 }
 
-/* Navegación */
+/* ==========================================
+   2. ENCABEZADO Y NAVEGACIÓN (Escritorio)
+   ========================================== */
 header {
     background-color: #1a1a1a;
     color: #fff;
@@ -51,7 +55,9 @@ nav ul li a:hover {
     color: #d4af37;
 }
 
-/* Sección Hero / Inicio */
+/* ==========================================
+   3. SECCIÓN HERO / INICIO (Escritorio)
+   ========================================== */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg') no-repeat center center/cover;
     height: 80vh;
@@ -60,6 +66,7 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     color: #fff;
+    padding: 0 20px; /* Evita que el texto toque los bordes en pantallas medianas */
 }
 
 .hero-content h1 {
@@ -83,13 +90,16 @@ nav ul li a:hover {
     text-transform: uppercase;
     border-radius: 4px;
     transition: background 0.3s;
+    display: inline-block;
 }
 
 .btn-principal:hover {
     background-color: #fff;
 }
 
-/* Estilos de Secciones Generales */
+/* ==========================================
+   4. SECCIONES GENERALES Y GRID DE SERVICIOS
+   ========================================== */
 .seccion {
     padding: 80px 20px;
     max-width: 1200px;
@@ -109,15 +119,12 @@ nav ul li a:hover {
     max-width: 100%;
 }
 
-/* Grid de Servicios */
+/* El uso de 'auto-fit' aquí ya ayuda a que las tarjetas bajen solas si no caben */
 .servicios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .servicio-tarjeta {
@@ -133,7 +140,9 @@ nav ul li a:hover {
     font-family: 'Cinzel', serif;
 }
 
-/* Formulario de Contacto */
+/* ==========================================
+   5. FORMULARIO DE CONTACTO
+   ========================================== */
 .form-contacto {
     max-width: 600px;
     margin: 40px auto 0 auto;
@@ -148,6 +157,7 @@ nav ul li a:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
 }
 
 .btn-enviar {
@@ -160,6 +170,7 @@ nav ul li a:hover {
     cursor: pointer;
     text-transform: uppercase;
     transition: background 0.3s;
+    font-size: 1rem;
 }
 
 .btn-enviar:hover {
@@ -167,11 +178,67 @@ nav ul li a:hover {
     color: #1a1a1a;
 }
 
-/* Footer */
+/* ==========================================
+   6. FOOTER
+   ========================================== */
 footer {
     background-color: #1a1a1a;
     color: #fff;
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
+}
+
+
+/* ==========================================
+   7. RESPONSIVIDAD (Media Queries)
+   ========================================== */
+
+/* Ajustes para Tablets (Pantallas menores a 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column; /* El logo arriba, el menú abajo */
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Si los links son largos, bajan de renglón ordenadamente */
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px; /* Espaciado más cómodo para tocar con el dedo */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Reducimos el título principal */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .seccion {
+        padding: 50px 20px; /* Reducimos espacios blancos en pantallas pequeñas */
+    }
+
+    .seccion h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Ajustes para Teléfonos Celulares (Pantallas menores a 480px) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Título aún más cómodo para celular */
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr; /* Una sola columna obligatoria para las tarjetas */
+    }
+
+    .form-contacto {
+        padding: 0 10px;
+    }
 }
